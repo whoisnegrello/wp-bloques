@@ -8,13 +8,21 @@ function plz_register_blocks() {
 		'plz-register-block',
 		plugins_url( './build/index.js', __FILE__ ),
 		$assets_file['dependencies'],
-		$assets_file['vaersion']
+		$assets_file['version']
+	);
+
+	wp_register_style(
+		'plz-register-block',
+		plugins_url( './build/index.css', __FILE__ ),
+		array(),
+		$assets_file['version']
 	);
 
 	register_block_type(
 		'plz/register',
 		array(
 			'editor_script' => 'plz-register-block',
+			'style'         => 'plz-register-block',
 		)
 	);
 }
