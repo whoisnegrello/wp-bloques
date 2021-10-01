@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const Edit = props => {
   const {
     className,
@@ -29,8 +30,10 @@ const Edit = props => {
     title,
     nameLabel,
     emailLabel,
-    passwordLabel
+    passwordLabel,
+    text
   } = attributes;
+  const [hasText, setHasText] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(text);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Panel, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: "Labels",
     initialOpen: true
@@ -52,7 +55,14 @@ const Edit = props => {
     onChange: newLabel => setAttributes({
       passwordLabel: newLabel
     })
-  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
+    controls: [{
+      icon: "text",
+      title: "Add text",
+      isActive: text || hasText,
+      onClick: () => setHasText(!hasText)
+    }]
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: className
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "signin__container"
@@ -63,6 +73,13 @@ const Edit = props => {
     value: title,
     onChange: newTitle => setAttributes({
       title: newTitle
+    })
+  }), (text || hasText) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+    tagName: "p",
+    placeholder: "Escrib\xED un p\xE1rrafo",
+    value: text,
+    onChange: newText => setAttributes({
+      text: newText
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     className: "signin__form",
@@ -128,7 +145,8 @@ const Save = props => {
     title,
     nameLabel,
     emailLabel,
-    passwordLabel
+    passwordLabel,
+    text
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: className
@@ -138,6 +156,9 @@ const Save = props => {
     tagName: "h1",
     className: "sigin__titulo",
     value: title
+  }), text && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "p",
+    value: text
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     className: "signin__form",
     id: "signup"
@@ -336,6 +357,10 @@ __webpack_require__.r(__webpack_exports__);
     passwordLabel: {
       type: "string",
       default: "Password"
+    },
+    text: {
+      source: "html",
+      selector: "p"
     }
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],

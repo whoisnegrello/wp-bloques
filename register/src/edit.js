@@ -1,9 +1,11 @@
-import {InspectorControls, RichText} from "@wordpress/block-editor";
+import {useState} from "@wordpress/element";
+import {BlockControls, InspectorControls, RichText} from "@wordpress/block-editor";
 import {Panel, PanelBody, TextControl} from "@wordpress/components"
 
 const Edit = (props) => {
   const {className, attributes, setAttributes} = props;
-  const {title, nameLabel, emailLabel, passwordLabel} = attributes;
+  const {title, nameLabel, emailLabel, passwordLabel, text} = attributes;
+  const [hasText, setHasText] = useState(text);
 
   return (
     <>
@@ -28,6 +30,16 @@ const Edit = (props) => {
         </PanelBody>
       </Panel>
     </InspectorControls>
+    <BlockControls
+      controls={[
+        {
+          icon: "text",
+          title: "Add text",
+          isActive: text || hasText,
+          onClick: () => setHasText(!hasText)
+        }
+      ]}
+    />
     <div className={className}>
       <div className="signin__container">
         <RichText
@@ -37,6 +49,14 @@ const Edit = (props) => {
           value={title}
           onChange={(newTitle) => setAttributes({title: newTitle})}
         />
+        {(text || hasText) &&
+          <RichText
+            tagName="p"
+            placeholder="Escribí un párrafo"
+            value={text}
+            onChange={(newText) => setAttributes({text: newText})}
+          />
+        }
         <form className="signin__form" id="signup">
           <div className="signin__name name--campo">
             <label for="Name">{nameLabel}</label>
