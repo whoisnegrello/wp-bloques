@@ -363,6 +363,14 @@ __webpack_require__.r(__webpack_exports__);
       selector: "p"
     }
   },
+  styles: [{
+    name: "light",
+    label: "Light Mode",
+    isDefault: true
+  }, {
+    name: "dark",
+    label: "Dark Mode"
+  }],
   edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
 });

@@ -31,6 +31,17 @@ registerBlockType("plz/register", {
       selector: "p"
     }
   },
+  styles: [
+    {
+      name: "light",
+      label: "Light Mode",
+      isDefault: true,
+    },
+    {
+      name: "dark",
+      label: "Dark Mode"
+    }
+  ],
   edit,
   save,
 });

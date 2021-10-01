@@ -103,5 +103,18 @@
   background-color: #000;
   color: white;
 }
+.wp-block-plz-register.is-style-dark {
+  color: white;
+  background-color: #333;
+}
+.wp-block-plz-register.is-style-dark .signin__container .sigin__titulo {
+  color: white;
+}
+.wp-block-plz-register.is-style-dark .signin__container .signin__form .name--campo label {
+  color: white;
+}
+.wp-block-plz-register.is-style-dark .signin__container .signin__form .name--campo input:not([type=submit]) {
+  border: 1px solid #acd9b2;
+}
 
 /*# sourceMappingURL=index.css.map*/
