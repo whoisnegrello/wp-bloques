@@ -1,6 +1,7 @@
 import {registerBlockType} from "@wordpress/blocks";
 
 import edit from "./edit";
+import save from "./save";
 import "./styles.scss";
 
 registerBlockType("plz/register", {
@@ -16,8 +17,16 @@ registerBlockType("plz/register", {
     nameLabel: {
       type: "string",
       default: "Name"
-    }
+    },
+    emailLabel: {
+      type: "string",
+      default: "Email"
+    },
+    passwordLabel: {
+      type: "string",
+      default: "Password"
+    },
   },
   edit,
-  save: () => <h2>Register</h2>
+  save,
 });

@@ -3,7 +3,7 @@ import {Panel, PanelBody, TextControl} from "@wordpress/components"
 
 const Edit = (props) => {
   const {className, attributes, setAttributes} = props;
-  const {title, nameLabel} = attributes;
+  const {title, nameLabel, emailLabel, passwordLabel} = attributes;
 
   return (
     <>
@@ -14,6 +14,16 @@ const Edit = (props) => {
             label="Name Label"
             value={nameLabel}
             onChange={(newLabel) => setAttributes({nameLabel: newLabel})}
+          />
+          <TextControl
+            label="Email Label"
+            value={emailLabel}
+            onChange={(newLabel) => setAttributes({emailLabel: newLabel})}
+          />
+          <TextControl
+            label="Pass Label"
+            value={passwordLabel}
+            onChange={(newLabel) => setAttributes({passwordLabel: newLabel})}
           />
         </PanelBody>
       </Panel>
@@ -33,11 +43,11 @@ const Edit = (props) => {
             <input name="name" type="text" id="Name" />
           </div>
           <div className="signin__email name--campo">
-            <label for="email">Email</label>
+            <label for="email">{emailLabel}</label>
             <input name="email" type="email" id="email" />
           </div>
           <div className="signin__pass name--campo">
-            <label for="password">Password</label>
+            <label for="password">{passwordLabel}</label>
             <input name="password" type="password" id="password" />
           </div>
           <div className="signin__submit">
