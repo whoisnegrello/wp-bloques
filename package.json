@@ -6,6 +6,7 @@
   "scripts": {
 		"build": "wp-scripts build",
 		"build:register": "wp-scripts build ./register/src/index.js --output-path=./register/build",
+		"build:news": "wp-scripts build ./news/src/index.js --output-path=./news/build",
 		"check-engines": "wp-scripts check-engines",
 		"check-licenses": "wp-scripts check-licenses",
 		"format": "wp-scripts format",
@@ -17,6 +18,7 @@
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start",
     "start:register": "wp-scripts start  ./register/src/index.js --output-path=./register/build",
+    "start:news": "wp-scripts start  ./news/src/index.js --output-path=./news/build",
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js"
 	},
